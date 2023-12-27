@@ -1,0 +1,11 @@
+//Filter out cases when IPv4 address is not in subnet defined by watchlist.
+
+//Traffic logs is a sample table. You can remove this line and replace "trafficlogs" with the table that contains your data.
+let trafficLogs = datatable (ip:string) ["10.24.1.2", "10.0.0.2", "10.25.0.1"];
+//Replace IPV4-Tuning-Subnets with the alias of your watchlist.
+let whitelist = _GetWatchlist('IPv4-Tuning-Subnets')
+| summarize make_set(SearchKey);
+trafficLogs
+| extend whitelist = toscalar(whitelist)
+| where not(ipv4_is_in_any_range(ip, whitelist))
+| project-away whitelist
