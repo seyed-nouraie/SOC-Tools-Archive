@@ -6,6 +6,4 @@ let trafficLogs = datatable (ip:string) ["10.24.1.2", "10.0.0.2", "10.25.0.1"];
 let whitelist = _GetWatchlist('IPv4-Tuning-Subnets')
 | summarize make_set(SearchKey);
 trafficLogs
-| extend whitelist = toscalar(whitelist)
-| where not(ipv4_is_in_any_range(ip, whitelist))
-| project-away whitelist
+| where not(ipv4_is_in_any_range(ip, toscalar(whitelist)))
