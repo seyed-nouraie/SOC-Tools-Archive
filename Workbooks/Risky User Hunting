@@ -17,9 +17,8 @@
     },
     "workbookSourceId": {
       "type": "string",
-      "defaultValue": "/subscriptions/429686be-6c38-48f1-8d1f-584f7acd0b82/resourcegroups/rg-contoso-secops/providers/microsoft.operationalinsights/workspaces/sentinel-main-01",
       "metadata": {
-        "description": "The id of resource instance to which the workbook will be associated"
+        "description": "The id of your workspace"
       }
     },
     "workbookId": {
