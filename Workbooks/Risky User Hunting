@@ -12,13 +12,13 @@
       "type": "string",
       "defaultValue": "sentinel",
       "metadata": {
-        "description": "The gallery that the workbook will been shown under. Supported values include workbook, tsg, etc. Usually, this is 'workbook'"
+        "description": "The gallery that the workbook will been shown under. If you want this in the Sentinel gallery, keep the default as sentinel."
       }
     },
     "workbookSourceId": {
       "type": "string",
       "metadata": {
-        "description": "The id of your workspace"
+        "description": "The resource id of your workspace (will be a full path containing the RG and subscription)"
       }
     },
     "workbookId": {
